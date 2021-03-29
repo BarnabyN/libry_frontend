@@ -1,0 +1,14 @@
+.isbn-search-form {
+  margin: auto;
+}
+
+.div-isbnsearch {
+  float: right;
+  width: 50%;
+}
+
+.div-booksearch {
+  float: left;
+  width: 50%;
+  align-items: center;
+}
