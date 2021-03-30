@@ -1,6 +1,10 @@
 import React from "react";
-import "../styles/elements/LoadingIcon.css";
+import { Spinner } from "reactstrap";
 
 export default function LoadingIcon() {
-  return <div className="loader"></div>;
+  return (
+    <div>
+      <Spinner color="secondary" />
+    </div>
+  );
 }
