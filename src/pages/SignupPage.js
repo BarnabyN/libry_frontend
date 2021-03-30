@@ -45,7 +45,7 @@ export default function SignupPage() {
       <CustomNavbar />
       <Col md={{ size: 6, offset: 3 }}>
         <h2>Sign Up!</h2>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <FormGroup>
             <Input
               placeholder="Username"
@@ -78,7 +78,7 @@ export default function SignupPage() {
               onChange={(e) => setPassword2(e.target.value)}
             />
           </FormGroup>
-          <Button>Submit</Button>
+          <Button type="submit">Submit</Button>
         </Form>
       </Col>
     </div>

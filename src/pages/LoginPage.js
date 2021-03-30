@@ -34,7 +34,7 @@ function LoginPage() {
         } else {
           setErrorMessage("");
           localStorage.setItem("token", res.token);
-          history.push("/vendor-home");
+          history.push("/");
         }
       });
   }
@@ -45,7 +45,7 @@ function LoginPage() {
 
       <Col md={{ size: 6, offset: 3 }}>
         <h2>Log In</h2>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <FormGroup>
             <Input
               placeholder="Username"
@@ -63,7 +63,7 @@ function LoginPage() {
             />
           </FormGroup>
 
-          <Button>Submit</Button>
+          <Button type="submit">Submit</Button>
         </Form>
       </Col>
     </div>
