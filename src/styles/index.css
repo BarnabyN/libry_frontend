@@ -7,7 +7,8 @@ body {
 }
 
 .content {
-  padding-top: 20px;
+  padding-top: 1%;
+  margin: 1%;
   min-height: 81.5vh;
   text-align: center;
 }
@@ -21,22 +22,4 @@ input {
   margin: 5px;
   text-align: center;
   display: block;
-}
-
-button {
-  font-size: 18px;
-  outline: none;
-  border-radius: 50px;
-  background-color: #e3544f;
-  color: white;
-  border: none;
-  width: 200px;
-  height: 40px;
-  margin-top: 15px;
-  display: block;
-}
-
-button:hover {
-  color: darkgray;
-  cursor: pointer;
 }

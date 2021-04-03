@@ -12,3 +12,17 @@
   width: 50%;
   align-items: center;
 }
+
+td.isread {
+  text-align: center;
+  vertical-align: middle;
+}
+
+td.author {
+}
+
+td.title {
+}
+
+td.rating {
+}

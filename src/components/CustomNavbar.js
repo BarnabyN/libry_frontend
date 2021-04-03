@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import * as constants from "../constants";
+import "../styles/CustomNavbar.css";
 import {
-  Collapse,
   Navbar,
-  NavbarToggler,
   NavbarBrand,
   Nav,
   NavItem,
@@ -12,7 +12,7 @@ import {
 } from "reactstrap";
 
 export default function CustomNavbar() {
-  const [collapsed, setCollapsed] = useState(true);
+  const history = useHistory();
   const [user, setUser] = React.useState("");
   const token = localStorage.getItem("token");
 
@@ -28,33 +28,39 @@ export default function CustomNavbar() {
     }
   }, [token]);
 
-  const toggleNavbar = () => setCollapsed(!collapsed);
-
   return (
-    <div>
-      <Navbar color="faded" light>
-        <NavbarBrand href="/" className="mr-auto">
-          libry
-        </NavbarBrand>
-        <NavbarText>{user}</NavbarText>
-        <NavbarToggler onClick={toggleNavbar} className="mr-2" />
-        <Collapse isOpen={!collapsed} navbar>
-          <Nav navbar>
-            {user ? (
-              <NavLink href="/login/">Log Out</NavLink>
-            ) : (
-              <div>
-                <NavItem>
-                  <NavLink href="/login/">Log In</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="/signup">Sign Up</NavLink>
-                </NavItem>
-              </div>
-            )}
-          </Nav>
-        </Collapse>
-      </Navbar>
-    </div>
+    <Navbar className="navbar" color="dark" dark expand="ml">
+      <NavbarBrand href="/">libry</NavbarBrand>
+
+      <Nav className="ml-auto" navbar>
+        {user ? (
+          <div className="nav">
+            <NavbarText className="nav-item-override">{user}</NavbarText>
+            <NavbarText className="nav-item-override">|</NavbarText>
+            <NavItem className="nav-item-override">
+              <NavLink
+                tag={Link}
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  history.push("/login");
+                }}
+              >
+                Log Out
+              </NavLink>
+            </NavItem>
+          </div>
+        ) : (
+          <div className="nav">
+            <NavItem className="nav-item-override">
+              <NavLink href="/login/">Log In</NavLink>
+            </NavItem>
+            <NavbarText className="nav-item-override">|</NavbarText>
+            <NavItem className="nav-item-override">
+              <NavLink href="/signup">Sign Up</NavLink>
+            </NavItem>
+          </div>
+        )}
+      </Nav>
+    </Navbar>
   );
 }
