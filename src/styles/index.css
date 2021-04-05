@@ -12,14 +12,3 @@ body {
   min-height: 81.5vh;
   text-align: center;
 }
-
-input {
-  font-size: 18px;
-  border-radius: 5px;
-  border: none;
-  background-color: #e3544f20;
-  height: 30px;
-  margin: 5px;
-  text-align: center;
-  display: block;
-}

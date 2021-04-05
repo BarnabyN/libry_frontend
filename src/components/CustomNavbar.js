@@ -30,7 +30,9 @@ export default function CustomNavbar() {
 
   return (
     <Navbar className="navbar" color="dark" dark expand="ml">
-      <NavbarBrand href="/">libry</NavbarBrand>
+      <NavbarBrand tag={Link} to={"/"}>
+        libry
+      </NavbarBrand>
 
       <Nav className="ml-auto" navbar>
         {user ? (
@@ -52,11 +54,15 @@ export default function CustomNavbar() {
         ) : (
           <div className="nav">
             <NavItem className="nav-item-override">
-              <NavLink href="/login/">Log In</NavLink>
+              <NavLink tag={Link} to={"/login"}>
+                Log In
+              </NavLink>
             </NavItem>
             <NavbarText className="nav-item-override">|</NavbarText>
             <NavItem className="nav-item-override">
-              <NavLink href="/signup">Sign Up</NavLink>
+              <NavLink tag={Link} to={"/signup"}>
+                Sign Up
+              </NavLink>
             </NavItem>
           </div>
         )}
