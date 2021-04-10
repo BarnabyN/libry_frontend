@@ -10,7 +10,7 @@ ReactDOM.render(
   <div className="wrapper">
     <MetaTags>
       <title>libry</title>
-      <meta name="description" content="Simple online reading list" />
+      <meta name="description" content="Your reading list, simplified." />
       <meta property="og:title" content="libry" />
       <meta property="og:image" content="./images/CircleIcon.png" />
       <meta property="og:url" content="www.libry.com" />
