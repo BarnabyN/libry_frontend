@@ -1,11 +1,11 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { Table, Input } from "reactstrap";
+import { Row, Col, Button, Input, Form } from "reactstrap";
 import CustomNavbar from "../components/CustomNavbar";
 import "../styles/HomePage.css";
 import $ from "jquery";
 import * as constants from "../constants";
-import BookTable from "../components/BookTable.js";
+import BookItem from "../components/BookItem.js";
 
 export default function HomePage() {
   const history = useHistory();
@@ -46,7 +46,7 @@ export default function HomePage() {
   }, [token]);
 
   function addBook(e) {
-    // e.preventDefault();
+    e.preventDefault();
 
     fetch(constants.dbstring + "/add-book", {
       method: "POST",
@@ -76,35 +76,115 @@ export default function HomePage() {
       <CustomNavbar />
 
       <div className="content">
-        <form onSubmit={(e) => addBook(e)}>
-          <input
-            className="add-item"
-            type="checkbox"
-            checked={isread}
-            onChange={(e) => setIsread(!isread)}
-          />{" "}
-          <input
-            className="add-item"
-            type="text"
-            placeholder="Title"
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <input
-            className="add-item"
-            type="text"
-            placeholder="Author"
-            onChange={(e) => setAuthor(e.target.value)}
-          />
-          <input
-            className="add-item"
-            type="text"
-            placeholder="Rating"
-            onChange={(e) => setRating(e.target.value)}
-          />
-          <button>Add</button>
-        </form>
-        <BookTable books={books} />
+        <Form onSubmit={(e) => addBook(e)}>
+          <Row form>
+            <Col>
+              <input
+                className="add-item checkbox"
+                type="checkbox"
+                checked={isread}
+                onChange={(e) => setIsread(!isread)}
+              />{" "}
+            </Col>
+            <Col>
+              <Input
+                className="add-item"
+                type="text"
+                placeholder="Title"
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </Col>
+            <Col>
+              <Input
+                className="add-item"
+                type="text"
+                placeholder="Author"
+                onChange={(e) => setAuthor(e.target.value)}
+              />
+            </Col>
+            <Col>
+              <Input
+                className="add-item"
+                type="text"
+                placeholder="Rating"
+                onChange={(e) => setRating(e.target.value)}
+              />
+            </Col>
+            <Button className="add-item" type="submit">
+              Add
+            </Button>
+          </Row>
+        </Form>
+
+        {books.map((book) => {
+          return <BookItem book={book} />;
+        })}
       </div>
     </div>
   );
+}
+
+{
+  /* <Table hover id="book-table">
+<thead>
+  <tr>
+    <th>Read</th>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Rating</th>
+    <th>Remove</th>
+  </tr>
+</thead>
+<tbody>
+  {books.map((book) => {
+    return (
+      <tr>
+        <td className="isread">
+          <Input
+            className="tickbox"
+            type="checkbox"
+            checked={book.isread}
+            disabled={true}
+          />
+        </td>
+        <td>
+          <Input
+            className="table-editable title"
+            type="text"
+            value={book.title}
+            disabled={true}
+          />
+        </td>
+        <td>
+          <Input
+            className="table-editable author"
+            type="text"
+            value={book.author}
+            disabled={true}
+          />
+        </td>
+        <td>
+          <Input
+            className="table-editable rating"
+            type="text"
+            value={book.rating}
+            disabled={true}
+          />
+        </td>
+        <td>
+          <button
+            style={{
+              background: "none",
+              border: "none",
+              color: "darkgray",
+            }}
+          >
+            &#10060;
+          </button>
+        </td>
+      </tr>
+    );
+  })}
+</tbody>
+</Table> */
 }

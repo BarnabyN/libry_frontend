@@ -1,0 +1,15 @@
+.tickbox {
+  margin: auto;
+}
+
+.bookitem-wrapper {
+  margin: 1%;
+  border: solid 1px lightgray;
+}
+
+#dropdown-toggle {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  font-size: inherit;
+}
