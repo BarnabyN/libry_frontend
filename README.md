@@ -1,0 +1,1 @@
+An idea for an clean reading list app. Online tracker of books you want to read and have read, as well as ratings. Uses a simple one page design to manage all your books in a material-ui table. Created as a react app.
